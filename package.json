@@ -10,7 +10,7 @@
   },
   "bin": "./dist/index.js",
   "author": "Md Taqui Imam",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.24.7",
     "@babel/core": "^7.24.7",
