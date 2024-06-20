@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Add components to your apps with CLI.",
   "main": "index.js",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/taqui-786/mixuiNpx"
+	},
   "type": "module",
   "scripts": {
     "build": "tsc",
