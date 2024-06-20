@@ -4,16 +4,16 @@ import { spawn } from "child_process";
 import ora from "ora";
 import chalk from "chalk";
 
-export const uiFolder = "components/nextcn-ui";
+export const uiFolder = "components/mixui";
 
 export function getWriteComponentPath(component: string) {
 	
   const path = "./src";
 
   if (fs.existsSync(path)) {
-    return "./src/components/nextcn-ui/" + component + ".tsx";
+    return "./src/components/mixui/" + component + ".tsx";
   } else {
-    return "./components/nextcn-ui/" + component + ".tsx";
+    return "./components/mixui/" + component + ".tsx";
   }
 }
 export function writeFile(action: string, url: string, path: string) {
