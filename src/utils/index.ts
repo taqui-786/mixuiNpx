@@ -4,16 +4,16 @@ import { spawn } from "child_process";
 import ora from "ora";
 import chalk from "chalk";
 
-export const uiFolder = "components/mixui";
+export const uiFolder = "components/nextcn-ui";
 
 export function getWriteComponentPath(component: string) {
 	
   const path = "./src";
 
   if (fs.existsSync(path)) {
-    return "./src/components/mixui/" + component + ".tsx";
+    return "./src/components/nextcn-ui/" + component + ".tsx";
   } else {
-    return "./components/mixui/" + component + ".tsx";
+    return "./components/nextcn-ui/" + component + ".tsx";
   }
 }
 export function writeFile(action: string, url: string, path: string) {
@@ -45,7 +45,7 @@ export function initTaquiUi() {
 
   setTimeout(() => {
     spinner.color = "yellow";
-    spinner.text = "Creating Folder '/component/mixui";
+    spinner.text = "Creating Folder '/component/nextcn-ui";
     if (
       !fs.existsSync("./src/" + uiFolder) &&
       !fs.existsSync("./" + uiFolder)
