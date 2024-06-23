@@ -20,7 +20,7 @@ async function main() {
       "-v, --version",
       "display the version number"
     )
-program.addCommand(add).addCommand(init)
+program.addCommand(init).addCommand(add)
   program.parse()
 }
 main()

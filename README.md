@@ -1,4 +1,4 @@
-# nextcn-ui (under development)
+# mixcn-ui (under development)
 
 Intall components in Nextjs with just CLI command. 
 
@@ -6,11 +6,13 @@ Intall components in Nextjs with just CLI command.
 
 Use the init command to initialize dependencies for a new project.
 
+```sh
 npx nextcn-ui init
+```
 
 # Documentation
 
-Visit https://mixcn-ui.vercel.app/docs to view the documentation.
+Visit https://mixcn-ui.vercel.app/docs to view the documentation and components.
 
 
 # add
