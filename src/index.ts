@@ -1,46 +1,26 @@
 #!/usr/bin/env node
 
-import * as fs from 'fs'
-import {spawn} from 'child_process';
+import { Command } from "commander"
+import { getPackageInfo } from "./utils/get-package-info.js"
+import { add } from "./command/add.js"
+import { init } from "./command/init.js"
 
-import {program} from 'commander';
-import {getWriteComponentPath,initTaquiUi,writeFile}from './utils/index.js'
-import chalk from 'chalk';
-// Setting up Init command
-program.command('init').option("--skip <type>", "Skip a specific step")
-.action(async (opition) => {
-   
-    initTaquiUi()
-    // if(opition.skip === 'shadcn'){
-    //     // start installing item
-        // initTaquiUi()
-    // }else{
-    //     console.log("Intalling Shadcn");
-    //     const child = spawn("npx shadcn-ui@latest init",{
-    //         stdio:"inherit",
-    //         shell:true,
-    //     });
-    //     // Handle child process exit
-	// 		child.on("close", (code) => {
-				// initTaquiUi();
-	// 		});
-        
-    // }
-    
-});
-program.command('add <component>')
-.description('Add a new component')
-.action(async (component) => {
-    if (component === 'hackerbutton') {
-        // Create File for HackerButton
-       
-        writeFile(
-            'HackerButton.tsx',
-            'https://raw.githubusercontent.com/taqui-786/Portfolio/main/src/components/HackerBtn.tsx',
-            getWriteComponentPath('HackerButton')
-        );
-    } else {
-        console.log(chalk.red.bold(`Unknown component: ${component}`));
-    }
-});
-program.parse(process.argv);
+process.on("SIGINT", () => process.exit(0))
+process.on("SIGTERM", () => process.exit(0))
+
+async function main() {
+  // Get the Package Info 
+  const packageInfo = await getPackageInfo()
+  // Starting Program ---
+  const program = new Command()
+    .name("mixcn-ui")
+    .description("add components and dependencies to your project")
+    .version(
+      packageInfo.version || "1.0.0",
+      "-v, --version",
+      "display the version number"
+    )
+program.addCommand(add).addCommand(init)
+  program.parse()
+}
+main()
