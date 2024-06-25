@@ -13,7 +13,7 @@ export const componentsData = [
   },
   {
     command: "textrotator",
-    packages: ["lucide-react","react-icons"],
+    packages: null,
     files: [
       {
         step: 0,
@@ -71,4 +71,16 @@ export const componentsData = [
       },
     ],
   },
+  {
+    command: "carousel",
+    packages: ["embla-carousel","embla-carousel-react"],
+    files: [
+      {
+        step: 0,
+        name: "Carousel",
+        link: "https://raw.githubusercontent.com/taqui-786/mixcnui/main/src/components/mdx/Carousel.tsx",
+        type: ".tsx",
+      }
+    ],
+  }
 ];
