@@ -1,4 +1,10 @@
-import { appendFileSync, existsSync, promises as fs, mkdirSync, writeFile } from "fs";
+import {
+  appendFileSync,
+  existsSync,
+  promises as fs,
+  mkdirSync,
+  writeFile,
+} from "fs";
 import * as https from "https";
 import { spawn } from "child_process";
 import ora from "ora";
@@ -7,7 +13,7 @@ import path from "path";
 import prompts from "prompts";
 import { logger } from "./logger.js";
 
-export const UIFOLDERPATH = "components/mixcnui";
+export const UIFOLDERPATH = "./components/mixcnui";
 export const UIFOLDER = "mixcnui";
 export const COMPONENTFILE = "components.json";
 
@@ -17,8 +23,7 @@ export async function findTargetFile(
 ): Promise<string | null> {
   async function searchDirectory(directory: string): Promise<string | null> {
     const files = await fs.readdir(directory);
-    if(files){
-
+    if (files) {
       for (const file of files) {
         const fullPath = path.join(directory, file);
         const stat = await fs.stat(fullPath);
@@ -31,16 +36,12 @@ export async function findTargetFile(
           }
         }
       }
-    };
-  
-    
-    
-      
-      return null;
-    
+    }
+
+    return null;
   }
-  
-  return  searchDirectory(startDir)
+
+  return searchDirectory(startDir);
 }
 export async function addMixcnuiToConfig(configPath: string) {
   try {
@@ -120,26 +121,23 @@ export async function writeFilesWithLinks(payloads: Array<any>) {
     const { step, name, link, type } = payload;
     const action = ` Creating ${name}${type}`;
     const path = getWriteComponentPath(payload.name);
-    
-   
-    if(link){
+
+    if (link) {
       const spinner = ora(chalk.cyan(action) as any).start();
       await checkAndWriteFile(action, link, path, spinner, payload.name);
-    }else{
-      
-        const spinner = ora(chalk.cyan(action)).start();
-      const filePath = await findTargetFile(payload.write.fileName)
-      if(filePath){
-
-        await appendFileSync(filePath as string, payload.write.data, "utf8")
-        spinner.succeed(chalk.green(`Data added to ${payload.write.fileName}.`));
-      }else{
-        spinner.fail(chalk.green(`No File Found name ${payload.write.fileName}.`));
-
+    } else {
+      const spinner = ora(chalk.cyan(action)).start();
+      const filePath = await findTargetFile(payload.write.fileName);
+      if (filePath) {
+        await appendFileSync(filePath as string, payload.write.data, "utf8");
+        spinner.succeed(
+          chalk.green(`Data added to ${payload.write.fileName}.`)
+        );
+      } else {
+        spinner.fail(
+          chalk.green(`No File Found name ${payload.write.fileName}.`)
+        );
       }
-      
-      
-      
     }
   }
 }
@@ -153,27 +151,32 @@ export function getWriteComponentPath(component: string) {
     return `./components/${UIFOLDER}/` + component + ".tsx";
   }
 }
- // ------------------ Set Up MixcnUi Folder if not installed -------------------
- export function setupMixCnuiFolder() {
+// ------------------ Set Up MixcnUi Folder if not installed -------------------
+export function setupMixCnuiFolder() {
   const srcPath = `./src/components/${UIFOLDER}`;
   const rootPath = `./components/${UIFOLDER}`;
 
   if (!existsSync(srcPath) && !existsSync(rootPath)) {
-    if (existsSync('./src/components')) {
+    if (existsSync("./src/components")) {
       mkdirSync(srcPath, { recursive: true });
-      console.log(chalk.green.bold(`Created './src/components/${UIFOLDER}' ...`));
-    } else if (existsSync('./components')) {
+      console.log(
+        chalk.green.bold(`Created './src/components/${UIFOLDER}' ...`)
+      );
+    } else if (existsSync("./components")) {
       mkdirSync(rootPath, { recursive: true });
       console.log(chalk.green.bold(`Created './components/${UIFOLDER}' ...`));
     } else {
-      console.log(chalk.red.bold(`Neither './src/components' nor './components' directories exist.`));
+      console.log(
+        chalk.red.bold(
+          `Neither './src/components' nor './components' directories exist.`
+        )
+      );
     }
-  } 
- 
+  }
 }
 
- // ------------------ Set Up Shadcnui if not installed -------------------
- export async function ShadcnuiInit (){
+// ------------------ Set Up Shadcnui if not installed -------------------
+export async function ShadcnuiInit() {
   const highlight = (text: string) => chalk.cyan(text);
   const readyToInstall = await prompts([
     {
@@ -192,13 +195,14 @@ export function getWriteComponentPath(component: string) {
       stdio: "inherit",
       shell: true,
     });
-    setupMixCnuiFolder()
     // Handle child process exit
     child.on("close", (code) => {
-      console.log("Now you can add components");
+      setupMixCnuiFolder();
     });
   } else {
     logger.success("Thanks for trying!");
-    process.exit(0)
+    process.exit(0);
   }
- }
+}
+
+

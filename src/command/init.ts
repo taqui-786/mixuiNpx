@@ -3,6 +3,7 @@ import { COMPONENTFILE, findTargetFile, setupMixCnuiFolder, ShadcnuiInit } from 
 import { logger } from "../utils/logger.js";
 import chalk from "chalk";
 import ora from "ora";
+import { initializing } from "../utils/initializing.js";
 
 export const init = new Command()
   .name("init")
@@ -10,16 +11,7 @@ export const init = new Command()
  
   .action(async (opts) => {
     try {
-      const spinner = ora(chalk.cyan('initializing...')).start();
-      const componentFile = await findTargetFile(COMPONENTFILE);
-      if (componentFile) {
-        spinner.succeed(chalk.green(`Project is initialized.`));
-        setupMixCnuiFolder()
-        logger.success("Now You can add compoenents.");
-      } else {
-        spinner.fail(chalk.red("Shadn-ui not installed"));
-       await ShadcnuiInit()
-      }
+     await initializing("init")
     } catch (error) {
       console.log(error);
     }

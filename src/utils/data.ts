@@ -2,6 +2,7 @@ export const componentsData = [
   {
     command: "hackerbutton",
     packages: null,
+    shadcnPackages:null,
     files: [
       {
         step: 0,
@@ -14,6 +15,7 @@ export const componentsData = [
   {
     command: "textrotator",
     packages: null,
+    shadcnPackages:null,
     files: [
       {
         step: 0,
@@ -74,6 +76,7 @@ export const componentsData = [
   {
     command: "carousel",
     packages: ["embla-carousel","embla-carousel-react"],
+    shadcnPackages:["button"],
     files: [
       {
         step: 0,

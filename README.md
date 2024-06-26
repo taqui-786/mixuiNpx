@@ -7,7 +7,7 @@ Intall components in Nextjs with just CLI command.
 Use the init command to initialize dependencies for a new project.
 
 ```sh
-npx nextcn-ui init
+npx mixcn-ui init
 ```
 
 # Documentation
@@ -21,17 +21,17 @@ Use the add command to add components to your project.
 
 The add command adds a component to your project and installs all required dependencies.
 
-npx nextcn-ui add <component_name>
+npx mixcn-ui add <component_name>
 Example
 
 ```sh
-npx nextcn-ui add hackerbutton
+npx mixcn-ui add hackerbutton
 ```
 
 You can also run the command without any arguments to view a list of all available components:
 
 ```sh
-npx nextcn-ui add <component_name>
+npx mixcn-ui add <component_name>
 ```
 
 
