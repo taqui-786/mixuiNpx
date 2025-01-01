@@ -13,8 +13,8 @@ import path from "path";
 import prompts from "prompts";
 import { logger } from "./logger.js";
 
-export const UIFOLDERPATH = "./components/mixcnui";
-export const UIFOLDER = "mixcnui";
+export const UIFOLDERPATH = "./components/customComponents";
+export const UIFOLDER = "customComponents";
 export const COMPONENTFILE = "components.json";
 
 export async function findTargetFile(

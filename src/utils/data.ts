@@ -7,7 +7,7 @@ export const componentsData = [
       {
         step: 0,
         name: "HackerButton",
-        link: "https://raw.githubusercontent.com/taqui-786/mixcnui/main/src/components/mdx/HackerButton.tsx",
+        link: "https://raw.githubusercontent.com/taqui-786/mixcnui/main/src/components/uiComponents/HackerButton.tsx",
         type: ".tsx",
       }
     ],
@@ -74,14 +74,14 @@ export const componentsData = [
     ],
   },
   {
-    command: "carousel",
+    command: "multicarousel",
     packages: ["embla-carousel","embla-carousel-react"],
     shadcnPackages:["button"],
     files: [
       {
         step: 0,
-        name: "Carousel",
-        link: "https://raw.githubusercontent.com/taqui-786/mixcnui/main/src/components/mdx/Carousel.tsx",
+        name: "MultiCarousel",
+        link: "https://raw.githubusercontent.com/taqui-786/mixcnui/main/src/components/uiComponents/MultiCarousel.tsx",
         type: ".tsx",
       }
     ],
