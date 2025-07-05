@@ -1,43 +1,72 @@
-# mixcn-ui (under development)
 
-Intall components in Nextjs with just CLI command. 
 
-# Usage
+<div align="center">
+  <img src="https://github.com/taqui-786/mixcnui/blob/main/public/mixuiLogo.png" alt="mixcn-ui Logo" width="200">
+  <h1 style="animation: typing 2s steps(20, end);">mixcn-ui</h1>
+  <p>Add components to your Next.js apps with a simple CLI command.</p>
+</div>
 
-Use the init command to initialize dependencies for a new project.
+<br>
 
-```sh
+[![npm version](https://badge.fury.io/js/mixcn-ui.svg)](https://badge.fury.io/js/mixcn-ui)
+[![GitHub stars](https://img.shields.io/github/stars/taqui-786/mixuiNpx?style=social)](https://github.com/taqui-786/mixuiNpx)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+
+<br>
+
+## ✨ Features
+
+* **Effortless Component Addition:** Integrate components into your Next.js projects with a single command.
+* **Automated Dependency Management:**  mixcn-ui automatically installs all required dependencies for each component, saving you time and effort.
+* **Extensive Component Library:** Access a growing collection of pre-built, reusable components to accelerate your development process.
+* **User-Friendly CLI:**  Enjoy an intuitive and easy-to-use command-line interface for seamless component management.
+* **Continuous Improvement:**  Benefit from ongoing updates with new features and components added regularly.
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
 npx mixcn-ui init
 ```
 
-# Documentation
+This command sets up the necessary project dependencies.
 
-Visit https://mixcn-ui.vercel.app/docs to view the documentation and components.
+### Adding Components
 
+Use the `add` command to effortlessly add components to your project:
 
-# add
-
-Use the add command to add components to your project.
-
-The add command adds a component to your project and installs all required dependencies.
-
+```bash
 npx mixcn-ui add <component_name>
-Example
+```
 
-```sh
+For example, to add the `hackerbutton` component:
+
+```bash
 npx mixcn-ui add hackerbutton
 ```
 
-You can also run the command without any arguments to view a list of all available components:
+To view the list of available components, simply run the `add` command without any arguments:
 
-```sh
-npx mixcn-ui add <component_name>
+```bash
+npx mixcn-ui add
 ```
 
+## 📚 Documentation
 
-License
-Licensed under the MIT license.
+Dive deeper into the documentation and explore the complete list of available components:
 
+[https://mixcn-ui.vercel.app/docs](https://mixcn-ui.vercel.app/docs)
 
+## 🤝 Contributing
 
-### Created By https://mdtaquiimam.vercel.app
+We welcome contributions!  Check out the [contributing guidelines](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🧑‍💻 Created By
+
+[Md Taqui Imam](https://taqui-imam.vercel.app)
